@@ -8,14 +8,14 @@ namespace ZureRoom.Models
     public class Menu
     {
         public int ID { get; set; }
-        public string Naam { get; set; }
-        public int Ordering { get; set; }
-        public string Beschrijving { get; set; }
-        public bool Noten { get; set; }
-        public bool Schelpdieren { get; set; }
-        public bool Soya { get; set; }
-        public bool Eieren { get; set; }
-        public bool Melk { get; set; }
-        public int Prijs { get; set; }
+        public string Name { get; set; }
+        public int Order { get; set; }
+        public string Details { get; set; }
+        public bool Nuts { get; set; }
+        public bool Shellfish { get; set; }
+        public bool Soy { get; set; }
+        public bool Eggs { get; set; }
+        public bool Milk { get; set; }
+        public decimal Price { get; set; }
     }
 }
