@@ -1,14 +1,19 @@
 ﻿@model IEnumerable<ZureRoom.Models.Menu>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Menu's";
 }
 
-<h2>Index</h2>
+<h2>Menu's</h2>
+
+<!--Alleen toegankelijk voor Bon Temps-personeel-->
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
+
+<!---->
+
 <table class="table">
     <tr>
         <th>
@@ -70,6 +75,9 @@
         <td>
             @Html.DisplayFor(modelItem => item.Prijs)
         </td>
+
+        <!--Alleen toegankelijk voor Bon Temps-personeel-->
+
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
