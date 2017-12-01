@@ -31,5 +31,7 @@ namespace ZureRoom.Models
         }
 
         public System.Data.Entity.DbSet<ZureRoom.Models.Contact> Contacts { get; set; }
+
+        public System.Data.Entity.DbSet<ZureRoom.Models.Menu> Menus { get; set; }
     }
 }

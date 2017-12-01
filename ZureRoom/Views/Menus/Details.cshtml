@@ -1,0 +1,90 @@
+﻿@model ZureRoom.Models.Menu
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Menu</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Naam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Naam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Ordering)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ordering)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Beschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Noten)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Noten)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Schelpdieren)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Schelpdieren)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Soya)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Soya)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Eieren)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Eieren)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Melk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Melk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Prijs)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

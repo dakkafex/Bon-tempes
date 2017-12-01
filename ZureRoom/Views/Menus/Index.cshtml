@@ -1,0 +1,81 @@
+﻿@model IEnumerable<ZureRoom.Models.Menu>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Naam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Ordering)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Beschrijving)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Noten)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Schelpdieren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Soya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Eieren)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Melk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prijs)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ordering)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Beschrijving)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Noten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Schelpdieren)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Soya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Eieren)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Melk)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prijs)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>
