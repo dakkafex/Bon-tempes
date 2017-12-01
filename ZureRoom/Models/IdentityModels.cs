@@ -29,5 +29,7 @@ namespace ZureRoom.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<ZureRoom.Models.Contact> Contacts { get; set; }
     }
 }
