@@ -12,5 +12,6 @@ namespace ZureRoom.Models
         public string Email { get; set; }
         public string TelefoonNmr { get; set; }
         public string Bericht { get; set; }
+        public bool Gecontacteerd { get; set; }
     }
 }
