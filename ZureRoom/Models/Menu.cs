@@ -16,5 +16,6 @@ namespace ZureRoom.Models
         public bool Soya { get; set; }
         public bool Eieren { get; set; }
         public bool Melk { get; set; }
+        public int Prijs { get; set; }
     }
 }
