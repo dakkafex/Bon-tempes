@@ -50,6 +50,7 @@ namespace ZureRoom.Controllers
         {
             if (ModelState.IsValid)
             {
+                contact.Resolved = false;
                 db.Contacts.Add(contact);
                 db.SaveChanges();
                 return RedirectToAction("Index");
