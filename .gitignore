@@ -292,3 +292,5 @@ ZureRoom/packages\.config
 ZureRoom/Web\.config
 
 ZureRoom/ZureRoom\.csproj
+
+ZureRoom/Web\.Debug\.config
