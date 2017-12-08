@@ -200,6 +200,10 @@
     <Compile Include="Migrations\201712011218423_Resolvedstuff.Designer.cs">
       <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712081028430_menu.cs" />
+    <Compile Include="Migrations\201712081028430_menu.Designer.cs">
+      <DependentUpon>201712081028430_menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -302,6 +306,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712011218423_Resolvedstuff.resx">
       <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081028430_menu.resx">
+      <DependentUpon>201712081028430_menu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

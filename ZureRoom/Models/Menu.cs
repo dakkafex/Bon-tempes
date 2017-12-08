@@ -9,8 +9,8 @@ namespace ZureRoom.Models
     {
         public int ID { get; set; }
         public string Name { get; set; }
-        public int Order { get; set; }
-        public string Details { get; set; }
+        public string MenuImage { get; set; }
+        public string Description { get; set; }
         public bool Nuts { get; set; }
         public bool Shellfish { get; set; }
         public bool Soy { get; set; }
