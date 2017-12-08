@@ -200,13 +200,19 @@
     <Compile Include="Migrations\201712011218423_Resolvedstuff.Designer.cs">
       <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712081028430_menu.cs" />
+    <Compile Include="Migrations\201712081028430_menu.Designer.cs">
+      <DependentUpon>201712081028430_menu.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuDetail.cs" />
     <Compile Include="Models\NewMenu.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -279,6 +285,7 @@
     <Content Include="Views\Menus\Details.cshtml" />
     <Content Include="Views\Menus\Edit.cshtml" />
     <Content Include="Views\Menus\Index.cshtml" />
+    <Content Include="Views\Home\ThankYou.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -299,6 +306,9 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201712011218423_Resolvedstuff.resx">
       <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712081028430_menu.resx">
+      <DependentUpon>201712081028430_menu.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
