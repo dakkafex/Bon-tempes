@@ -46,7 +46,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Naam,Ordering,Beschrijving,Noten,Schelpdieren,Soya,Eieren,Melk,Prijs")] Menu menu)
+        public ActionResult Create([Bind(Include = "ID,Name,MenuImage,Description,Nuts,Shellfish,Soy,Eggs,Milk,Price")] Menu menu)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Naam,Ordering,Beschrijving,Noten,Schelpdieren,Soya,Eieren,Melk,Prijs")] Menu menu)
+        public ActionResult Edit([Bind(Include = "ID,Name,MenuImage,Description,Nuts,Shellfish,Soy,Eggs,Milk,Price")] Menu menu)
         {
             if (ModelState.IsValid)
             {
