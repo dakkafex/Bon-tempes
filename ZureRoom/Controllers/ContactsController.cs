@@ -46,7 +46,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Naam,Email,TelefoonNmr,Bericht")] Contact contact)
+        public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,Message")] Contact contact)
         {
             if (ModelState.IsValid)
             {
