@@ -1,23 +1,25 @@
 ﻿@model IEnumerable<ZureRoom.Models.Menu>
 
 @{
-    ViewBag.Title = "Menu's";
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Menu's</h2>
-
-<!--Alleen toegankelijk voor Bon Temps-personeel-->
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-
-<!---->
-
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MenuImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Nuts)
@@ -46,6 +48,12 @@
             @Html.DisplayFor(modelItem => item.Name)
         </td>
         <td>
+            @Html.DisplayFor(modelItem => item.MenuImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
             @Html.DisplayFor(modelItem => item.Nuts)
         </td>
         <td>
@@ -63,9 +71,6 @@
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>
-
-        <!--Alleen toegankelijk voor Bon Temps-personeel-->
-
         <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
