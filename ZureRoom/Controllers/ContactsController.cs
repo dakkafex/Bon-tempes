@@ -15,6 +15,7 @@ namespace ZureRoom.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Contacts
+        [Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             return View(db.Contacts.ToList());
@@ -60,6 +61,7 @@ namespace ZureRoom.Controllers
         }
 
         // GET: Contacts/Edit/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -91,6 +93,7 @@ namespace ZureRoom.Controllers
         }
 
         // GET: Contacts/Delete/5
+        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)
