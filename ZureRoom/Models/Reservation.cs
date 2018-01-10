@@ -9,7 +9,10 @@ namespace ZureRoom.Models
     {
         public int ID { get; set; }
         public int MenuID { get; set; }
-        public int Count { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public string Phone { get; set; }
         public int Size { get; set; }
+        public Decimal Price { get; set; }
     }
 }
