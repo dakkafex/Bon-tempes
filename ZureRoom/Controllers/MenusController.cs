@@ -10,17 +10,20 @@ using ZureRoom.Models;
 
 namespace ZureRoom.Controllers
 {
+    [Authorize (Roles = "Admin, Cook")]
     public class MenusController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Menus
+        [AllowAnonymous]
         public ActionResult Index()
         {
             return View(db.Menus.ToList());
         }
 
         // GET: Menus/Details/5
+        [AllowAnonymous]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,7 +39,6 @@ namespace ZureRoom.Controllers
         }
 
         // GET: Menus/Create
-        [Authorize(Roles = "Admin")]
         public ActionResult Create()
         {
             return View();
@@ -60,7 +62,6 @@ namespace ZureRoom.Controllers
         }
 
         // GET: Menus/Edit/5
-        [Authorize(Roles = "Admin")]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -92,7 +93,6 @@ namespace ZureRoom.Controllers
         }
 
         // GET: Menus/Delete/5
-        [Authorize(Roles = "Admin")]
         public ActionResult Delete(int? id)
         {
             if (id == null)

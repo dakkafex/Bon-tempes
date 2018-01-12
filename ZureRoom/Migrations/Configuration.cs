@@ -17,6 +17,7 @@ namespace ZureRoom.Migrations
 
         protected override void Seed(ZureRoom.Models.ApplicationDbContext context)
         {
+            //Admin
             if (!context.Roles.Any(r => r.Name == "Admin"))
             {
                 var store = new RoleStore<IdentityRole>(context);
@@ -32,8 +33,28 @@ namespace ZureRoom.Migrations
                 var manager = new UserManager<ApplicationUser>(store);
                 var user = new ApplicationUser { UserName = "Admin" };
 
-                manager.Create(user, "Wacht!");
+                manager.Create(user, "Pass1!");
                 manager.AddToRole(user.Id, "Admin");
+            }
+
+            //Kok
+            if (!context.Roles.Any(r => r.Name == "Cook"))
+            {
+                var store = new RoleStore<IdentityRole>(context);
+                var manager = new RoleManager<IdentityRole>(store);
+                var role = new IdentityRole { Name = "Cook" };
+
+                manager.Create(role);
+            }
+
+            if (!context.Users.Any(u => u.UserName == "Cook"))
+            {
+                var store = new UserStore<ApplicationUser>(context);
+                var manager = new UserManager<ApplicationUser>(store);
+                var user = new ApplicationUser { UserName = "Cook" };
+
+                manager.Create(user, "Pass2!");
+                manager.AddToRole(user.Id, "Cook");
             }
         }
     }
