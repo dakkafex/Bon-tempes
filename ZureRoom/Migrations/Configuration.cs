@@ -27,11 +27,11 @@ namespace ZureRoom.Migrations
                 manager.Create(role);
             }
 
-            if (!context.Users.Any(u => u.UserName == "Admin"))
+            if (!context.Users.Any(u => u.UserName == "admin@bt.com"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser { UserName = "Admin" };
+                var user = new ApplicationUser { UserName = "admin@bt.com" };
 
                 manager.Create(user, "Pass1!");
                 manager.AddToRole(user.Id, "Admin");
@@ -47,11 +47,11 @@ namespace ZureRoom.Migrations
                 manager.Create(role);
             }
 
-            if (!context.Users.Any(u => u.UserName == "Cook"))
+            if (!context.Users.Any(u => u.UserName == "cook@bt.com"))
             {
                 var store = new UserStore<ApplicationUser>(context);
                 var manager = new UserManager<ApplicationUser>(store);
-                var user = new ApplicationUser { UserName = "Cook" };
+                var user = new ApplicationUser { UserName = "cook@bt.com" };
 
                 manager.Create(user, "Pass2!");
                 manager.AddToRole(user.Id, "Cook");
