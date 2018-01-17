@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<ZureRoom.Models.Menu>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "Bon Temps";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>Index</h2>
 
 <p>
+@if (User.IsInRole("Admin"))
+{
     @Html.ActionLink("Create New", "Create")
+}
 </p>
 <table class="table">
     <tr>
