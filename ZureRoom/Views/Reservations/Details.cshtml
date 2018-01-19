@@ -5,10 +5,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Details reservering</h2>
 
 <div>
-    <h4>Reservation</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -70,6 +69,6 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Bewerken", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Terug naar reserveringen", "Index")
 </p>

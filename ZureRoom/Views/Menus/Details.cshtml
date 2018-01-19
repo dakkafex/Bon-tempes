@@ -1,14 +1,13 @@
 ﻿@model ZureRoom.Models.Menu
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Menu";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>(Menunaam)</h2>
 
 <div>
-    <h4>Menu</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
@@ -86,7 +85,7 @@
     </dl>
 </div>
 <p>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Terug naar overzicht menu's", "Index")
     @if(User.IsInRole("Admin, Cook"))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
