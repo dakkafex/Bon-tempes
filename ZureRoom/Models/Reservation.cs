@@ -8,7 +8,8 @@ namespace ZureRoom.Models
     public class Reservation
     {
         public int ID { get; set; }
-        public int MenuID { get; set; }
+        public string MenuName { get; set; }
+        public int Amount { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Phone { get; set; }

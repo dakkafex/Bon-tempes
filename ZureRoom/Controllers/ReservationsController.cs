@@ -46,7 +46,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MenuID,Name,Email,Phone,Size,Price")] Reservation reservation)
+        public ActionResult Create([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,MenuID,Name,Email,Phone,Size,Price")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
