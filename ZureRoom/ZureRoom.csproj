@@ -217,6 +217,10 @@
     <Compile Include="Migrations\201801191006298_reservation2.Designer.cs">
       <DependentUpon>201801191006298_reservation2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201801191027577_translation.cs" />
+    <Compile Include="Migrations\201801191027577_translation.Designer.cs">
+      <DependentUpon>201801191027577_translation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Contact.cs" />
@@ -335,6 +339,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201801191006298_reservation2.resx">
       <DependentUpon>201801191006298_reservation2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201801191027577_translation.resx">
+      <DependentUpon>201801191027577_translation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
