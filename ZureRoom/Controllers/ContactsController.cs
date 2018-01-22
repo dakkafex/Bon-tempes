@@ -48,6 +48,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [AllowAnonymous]
         public ActionResult Create([Bind(Include = "ID,Name,Email,Phone,Message")] Contact contact)
         {
             if (ModelState.IsValid)
@@ -55,7 +56,7 @@ namespace ZureRoom.Controllers
                 contact.Resolved = false;
                 db.Contacts.Add(contact);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Confirm");
             }
 
             return View(contact);
@@ -125,6 +126,12 @@ namespace ZureRoom.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        [AllowAnonymous]
+        public ActionResult Confirm()
+        {
+            return View();
         }
     }
 }
