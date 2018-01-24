@@ -32,5 +32,8 @@ namespace ZureRoom.Models
         public int Size { get; set; }
         [DisplayName("Prijs")]
         public Decimal Price { get; set; }
+        [DisplayName("Bericht")]
+        [MaxLength(250)]
+        public string Message { get; set; }
     }
 }
