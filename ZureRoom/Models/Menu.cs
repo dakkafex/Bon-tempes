@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
 
@@ -28,9 +27,5 @@ namespace ZureRoom.Models
         public bool Milk { get; set; }
         [DisplayName("Prijs")]
         public decimal Price { get; set; }
-
-        //[ForeignKey("Category")]
-        //public int CategoryId { get; set; }
-        //public Category Category { get; set; }
     }
 }
