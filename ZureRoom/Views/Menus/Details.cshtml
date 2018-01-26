@@ -19,11 +19,17 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.MenuImage)
+            @Html.DisplayNameFor(model => model.MenuImg)
+
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.MenuImage)
+            @if (Model.MenuImg != null)
+            {
+                @Html.HiddenFor(model => Model.MenuImg.Id)
+                @Html.HiddenFor(model => Model.MenuImg.MenuImgPlace)
+                <br /><img src="~/Content/Uploads/@Model.ID/@Model" class="DetailMenuImg" /><br />
+            }
         </dd>
 
         <dt>
@@ -86,7 +92,7 @@
 </div>
 <p>
     @Html.ActionLink("Terug naar overzicht menu's", "Index")
-    @if(User.IsInRole("Admin, Cook"))
+    @if (User.IsInRole("Admin, Cook"))
     {
         @Html.ActionLink("Edit", "Edit", new { id = Model.ID })
     }

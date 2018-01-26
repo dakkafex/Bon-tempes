@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.IO;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -81,11 +82,43 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,Name,MenuImage,Description,Nuts,Shellfish,Soy,Eggs,Milk,Price")] Menu menu)
+        public ActionResult Edit([Bind(Include = "ID,Name,Description,Nuts,Shellfish,Soy,Eggs,Milk,Price")] Menu menu, HttpPostedFileBase ImageUpload)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(menu).State = EntityState.Modified;
+                Menu storedMenu =  db.Menus.SingleOrDefault(p => p.ID == menu.ID);
+
+                storedMenu.Name = menu.Name;
+                storedMenu.Description = menu.Description;
+                storedMenu.Nuts = menu.Nuts;
+                storedMenu.Shellfish = menu.Shellfish;
+                storedMenu.Soy = menu.Soy;
+                storedMenu.Eggs = menu.Eggs;
+                storedMenu.Milk = menu.Milk;
+                storedMenu.Price = menu.Price;
+
+                // afbeelding verwerken
+                if (ImageUpload != null && ImageUpload.ContentLength > 0)
+                {
+                    // directory aanmaken
+                    var uploadPath = Path.Combine(Server.MapPath("~/Content/Uploads"), storedMenu.ID.ToString());
+                    Directory.CreateDirectory(uploadPath);
+
+                    // TODO: oude afbeelding verwijderen
+
+                    // bestandsnaam maken
+                    string fileGuid = Guid.NewGuid().ToString();
+                    string extension = Path.GetExtension(ImageUpload.FileName);
+                    string newFilename = fileGuid + extension;
+
+                    // bestand opslaan
+                    ImageUpload.SaveAs(Path.Combine(uploadPath, newFilename));
+
+                    // opslaan in database
+                    MenuImg pic = new MenuImg { MenuImgPlace = newFilename };
+                    storedMenu.MenuImg = pic;
+                }
+                //db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
