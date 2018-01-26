@@ -26,6 +26,10 @@
                     <li>@Html.ActionLink("Reserveren", "Create", "Reservations")</li>
                     <li>@Html.ActionLink("Over", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Create", "Contacts")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Exporteer klantgegevens", "Index", "Export")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
