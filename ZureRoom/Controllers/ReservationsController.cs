@@ -10,6 +10,7 @@ using ZureRoom.Models;
 
 namespace ZureRoom.Controllers
 {
+    [Authorize(Roles = "Admin")]
     public class ReservationsController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -20,6 +21,7 @@ namespace ZureRoom.Controllers
             return View(db.Reservations.ToList());
         }
 
+        [AllowAnonymous]
         // GET: Reservations/Details/5
         public ActionResult Details(int? id)
         {
@@ -35,6 +37,7 @@ namespace ZureRoom.Controllers
             return View(reservation);
         }
 
+        [AllowAnonymous]
         // GET: Reservations/Create
         public ActionResult Create()
         {
@@ -46,7 +49,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price,Message")] Reservation reservation)
+        public ActionResult Create([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price,Message,Date")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +81,7 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price,Message")] Reservation reservation)
+        public ActionResult Edit([Bind(Include = "ID,MenuName,Amount,Name,Email,Phone,Size,Price,Message,Date")] Reservation reservation)
         {
             if (ModelState.IsValid)
             {

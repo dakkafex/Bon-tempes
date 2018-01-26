@@ -1,14 +1,14 @@
 ﻿@model IEnumerable<ZureRoom.Models.Reservation>
 
 @{
-    ViewBag.Title = "Reserveringen";
+    ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Reserveringen</h2>
+<h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Reserveer", "Create")
+    @Html.ActionLink("Create New", "Create")
 </p>
 <table class="table">
     <tr>
@@ -35,6 +35,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
         </th>
         <th></th>
     </tr>
@@ -63,12 +66,16 @@
             @Html.DisplayFor(modelItem => item.Price)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Message)
+            Zie details
+            @*@Html.DisplayFor(modelItem => item.Message)*@
         </td>
         <td>
-            @Html.ActionLink("Bewerk", "Edit", new { id = item.ID })
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Verwijder", "Delete", new { id = item.ID })
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
         </td>
     </tr>
 }

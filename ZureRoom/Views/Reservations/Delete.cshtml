@@ -1,13 +1,12 @@
 ﻿@model ZureRoom.Models.Reservation
 
 @{
-    ViewBag.Title = "Reservering opzeggen";
+    ViewBag.Title = "Verwijderen";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Reservering opzeggen</h2>
+<h2>Verwijder</h2>
 
-<h3>Weet u zeker dat u uw reservering wil opzeggen?</h3>
 <div>
     <hr />
     <dl class="dl-horizontal">
@@ -75,14 +74,22 @@
             @Html.DisplayFor(model => model.Message)
         </dd>
 
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
     </dl>
 
     @using (Html.BeginForm()) {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Terug naar reserveren", "Create")
+            <input type="submit" value="Verwijder" class="btn btn-default" /> |
+            @Html.ActionLink("Terug naar reserveringen", "Index")
         </div>
     }
 </div>

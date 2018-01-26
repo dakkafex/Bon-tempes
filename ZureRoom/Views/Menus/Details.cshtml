@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>(Menunaam)</h2>
+<h2>@Html.DisplayFor(model => model.Name)</h2>
 
 <div>
     <hr />
@@ -87,10 +87,14 @@
         <dd>
             @Html.DisplayFor(model => model.Price)
         </dd>
-
     </dl>
 </div>
 <p>
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Reserveer" class="btn btn-default" />
+        </div>
+    </div>
     @Html.ActionLink("Terug naar overzicht menu's", "Index")
     @if (User.IsInRole("Admin, Cook"))
     {

@@ -39,6 +39,12 @@ namespace ZureRoom.Controllers
             return View(menu);
         }
 
+        public ActionResult MaakReservering()
+        {
+
+            return View();
+        }
+
         // GET: Menus/Create
         public ActionResult Create()
         {

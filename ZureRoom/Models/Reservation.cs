@@ -14,6 +14,7 @@ namespace ZureRoom.Models
         public string MenuName { get; set; }
         [DisplayName("Aantal")]
         [Required]
+        [Range(1, 10)]
         public int Amount { get; set; }
         [DisplayName("Naam")]
         [Required]
@@ -28,6 +29,7 @@ namespace ZureRoom.Models
         [MaxLength(10)]
         public string Phone { get; set; }
         [DisplayName("Groepsgrootte")]
+        [Range(1, 10)]
         [Required]
         public int Size { get; set; }
         [DisplayName("Prijs")]
@@ -35,5 +37,10 @@ namespace ZureRoom.Models
         [DisplayName("Bericht")]
         [MaxLength(250)]
         public string Message { get; set; }
+        [DisplayName("Datum")]
+        [Required]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd-MM-yyyy}", ApplyFormatInEditMode = true)]
+        public DateTime Date { get; set; }
     }
 }
