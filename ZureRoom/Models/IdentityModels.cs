@@ -35,5 +35,7 @@ namespace ZureRoom.Models
         public System.Data.Entity.DbSet<ZureRoom.Models.Menu> Menus { get; set; }
 
         public System.Data.Entity.DbSet<ZureRoom.Models.Reservation> Reservations { get; set; }
+
+        public System.Data.Entity.DbSet<ZureRoom.Models.Tafel> Tafels { get; set; }
     }
 }

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<ZureRoom.Models.Tafel>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+    <br />
+    Er zijn @ViewBag.StoelenOver Stoelen Over.
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TableNmr)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chairs)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Combined)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Id != 1)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TableNmr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chairs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Combined)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
