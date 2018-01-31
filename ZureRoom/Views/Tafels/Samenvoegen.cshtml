@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ZureRoom.Models.Tafel>
+﻿@model ZureRoom.Models.Tafel
 
 @{
     ViewBag.Title = "Samenvoegen";
@@ -6,39 +6,37 @@
 
 <h2>Samenvoegen</h2>
 
-@using (Html.BeginForm())
-{
-    <table class="table">
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.TableNmr)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Chairs)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Combined)
-            </th>
-            <th></th>
-        </tr>
+<div>
+    <h4>Tafel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TableNmr)
+        </dt>
 
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TableNmr)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Chairs)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Combined)
-                </td>
-                <td>
-                    <input type="checkbox" value="@item.Id" />
-                </td>
-            </tr>
-        }
+        <dd>
+            @Html.DisplayFor(model => model.TableNmr)
+        </dd>
 
-    </table>
-}
+        <dt>
+            @Html.DisplayNameFor(model => model.Chairs)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chairs)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Combined)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Combined)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
