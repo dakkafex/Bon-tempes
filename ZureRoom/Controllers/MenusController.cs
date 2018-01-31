@@ -121,8 +121,8 @@ namespace ZureRoom.Controllers
                     ImageUpload.SaveAs(Path.Combine(uploadPath, newFilename));
 
                     // opslaan in database
-                    MenuImg pic = new MenuImg { MenuImgPlace = newFilename };
-                    storedMenu.MenuImg = pic;
+                    //MenuImg pic = new MenuImg { MenuImgPlace = newFilename };
+                    //storedMenu.MenuImg = pic;
                 }
                 //db.Entry(menu).State = EntityState.Modified;
                 db.SaveChanges();
