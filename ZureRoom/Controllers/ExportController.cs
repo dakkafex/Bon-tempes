@@ -50,6 +50,5 @@ namespace ZureRoom.Controllers
             byte[] bytes = Encoding.ASCII.GetBytes(csv);
             return File(bytes, "application/text", "Customer.csv");
         }
-
     }
 }
