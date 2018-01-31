@@ -102,8 +102,9 @@ namespace ZureRoom.Controllers
             }
             else if(samen <= tafel.Chairs)
             {
-                TempData["Error"] = "Geef minder stoelen aan dan aangegeven/vrij zij";
-                return RedirectToAction("Error");
+                //TempData["Error"] = "Geef minder stoelen aan dan aangegeven/vrij zij";
+                ViewBag.Error = "Geef minder stoelen aan dan aangegeven/vrij zijn";
+                return RedirectToAction("Fout");
             }
             return View(tafel);
         }

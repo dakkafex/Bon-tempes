@@ -29,6 +29,7 @@
                     @if (User.IsInRole("Admin"))
                     {
                         <li>@Html.ActionLink("Exporteer klantgegevens", "Index", "Export")</li>
+                        <li>@Html.ActionLink("Tafels","Index","Tafels")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

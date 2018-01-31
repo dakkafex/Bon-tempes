@@ -344,7 +344,7 @@
     <Content Include="Views\Tafels\Create.cshtml" />
     <Content Include="Views\Tafels\Edit.cshtml" />
     <Content Include="Views\Tafels\Index.cshtml" />
-    <Content Include="Views\Tafels\Error.cshtml" />
+    <Content Include="Views\Tafels\Fout.cshtml" />
     <Content Include="Views\Tafels\Samenvoegen.cshtml" />
   </ItemGroup>
   <ItemGroup>
