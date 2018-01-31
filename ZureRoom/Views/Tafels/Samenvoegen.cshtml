@@ -1,0 +1,44 @@
+﻿@model IEnumerable<ZureRoom.Models.Tafel>
+
+@{
+    ViewBag.Title = "Samenvoegen";
+}
+
+<h2>Samenvoegen</h2>
+
+@using (Html.BeginForm())
+{
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TableNmr)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Chairs)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Combined)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TableNmr)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Chairs)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Combined)
+                </td>
+                <td>
+                    <input type="checkbox" value="@item.Id" />
+                </td>
+            </tr>
+        }
+
+    </table>
+}

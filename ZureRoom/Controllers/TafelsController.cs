@@ -26,21 +26,6 @@ namespace ZureRoom.Controllers
             return View(db.Tafels.ToList());
         }
 
-        // GET: Tafels/Details/5
-        public ActionResult Details(int? id)
-        {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Tafel tafel = db.Tafels.Find(id);
-            if (tafel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tafel);
-        }
-
         // GET: Tafels/Create
         public ActionResult Create()
         {
@@ -87,56 +72,52 @@ namespace ZureRoom.Controllers
         public ActionResult Edit([Bind(Include = "Id,TableNmr,Chairs,Combined")] Tafel tafel)
         {
             int stoelen = db.Tafels.Where(d => d.Id == tafel.Id).Select(i => i.Chairs).FirstOrDefault();
+            int stoelenOver = db.Tafels.Where(i => i.Id == 1).Select(d => d.Chairs).FirstOrDefault();
+            int samen = stoelen + stoelenOver;
 
-            if (ModelState.IsValid && stoelen <= tafel.Id )
+            if (ModelState.IsValid && samen >= tafel.Chairs )
             {
-                ViewBag.OverStoel = ViewBag.OverStoel + stoelen - tafel.Id;
+                int stlUpdate = stoelen + stoelenOver - tafel.Chairs;
 
-                db.Entry(tafel).State = EntityState.Modified;
-                db.SaveChanges();
-                return RedirectToAction("Index");
+                var query =
+                    from T in db.Tafels
+                    where T.Id == 1
+                    select T;
+                foreach (Tafel T in query)
+                {
+                    T.Chairs = stlUpdate;
+                }
+
+                try
+                {
+                    db.Entry(tafel).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
+                }
+                catch (Exception e)
+                {
+                    TempData["Error"] = e;
+                    return RedirectToAction("Error");
+                }
             }
-            else if(stoelen > tafel.Id)
+            else if(samen <= tafel.Chairs)
             {
-                TempData["Error"] = "Geef minder stoelen aan dan aangegeven";
+                TempData["Error"] = "Geef minder stoelen aan dan aangegeven/vrij zij";
                 return RedirectToAction("Error");
             }
             return View(tafel);
         }
 
-        // GET: Tafels/Delete/5
-        public ActionResult Delete(int? id)
+        public ActionResult Samenvoegen()
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Tafel tafel = db.Tafels.Find(id);
-            if (tafel == null)
-            {
-                return HttpNotFound();
-            }
-            return View(tafel);
+            return View(db.Tafels.ToList());
         }
 
-        // POST: Tafels/Delete/5
-        [HttpPost, ActionName("Delete")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(int id)
+        public ActionResult Samenvoegen(bool[] Check)
         {
-            Tafel tafel = db.Tafels.Find(id);
-            db.Tafels.Remove(tafel);
-            db.SaveChanges();
-            return RedirectToAction("Index");
-        }
-
-        protected override void Dispose(bool disposing)
-        {
-            if (disposing)
-            {
-                db.Dispose();
-            }
-            base.Dispose(disposing);
+            return View(db.Tafels.ToList());
         }
     }
 }
