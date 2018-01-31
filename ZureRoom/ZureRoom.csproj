@@ -260,6 +260,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Menu.cs" />
+    <Compile Include="Models\MenuImg.cs" />
     <Compile Include="Models\Reservation.cs" />
     <Compile Include="Models\Tafel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
