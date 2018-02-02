@@ -13,8 +13,8 @@ namespace ZureRoom.Models
         public int ID { get; set; }
         [DisplayName("Naam")]
         public string Name { get; set; }
-        //[Display(Name = "Menu plaatje")]
-        //public virtual MenuImg MenuImg { get; set; }
+        [Display(Name = "Menu plaatje")]
+        public virtual MenuImg MenuImg { get; set; }
         [DisplayName("Beschrijving")]
         public string Description { get; set; }
         [DisplayName("Noten")]

@@ -19,9 +19,9 @@
         <th>
             @Html.DisplayNameFor(model => model.Chairs)
         </th>
-        <th>
+        @*<th>
             @Html.DisplayNameFor(model => model.Combined)
-        </th>
+        </th>*@
         <th></th>
     </tr>
 
@@ -36,13 +36,13 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.Chairs)
                 </td>
-                <td>
+                @*<td>
                     @Html.DisplayFor(modelItem => item.Combined)
-                </td>
+                </td>*@
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) @*|
                     @Html.ActionLink("Details", "Details", new { id = item.Id }) |
-                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })*@
                 </td>
             </tr>
         }
