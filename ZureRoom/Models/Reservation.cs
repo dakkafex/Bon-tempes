@@ -13,7 +13,6 @@ namespace ZureRoom.Models
         [DisplayName("Menu")]
         public string MenuName { get; set; }
         [DisplayName("Aantal")]
-        [Required]
         [Range(1, 10)]
         public int Amount { get; set; }
         [DisplayName("Naam")]
