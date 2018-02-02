@@ -3,14 +3,19 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using ZureRoom.Models;
 
 namespace ZureRoom.Controllers
 {
     public class HomeController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
         public ActionResult Index()
         {
-            return View();
+            var menu = from a in db.Menus
+                       select a;
+
+            return View(menu.ToList());
         }
 
         public ActionResult About()
