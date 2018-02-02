@@ -23,11 +23,20 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("Menu overzicht", "Index", "Menus")</li>
-                    <li>@Html.ActionLink("Reserveren", "Create", "Reservations")</li>
+                    <li>@Html.ActionLink("Menugangen instellen", "Index", "Categories")</li>
+                    @if (User.IsInRole("Admin"))
+                    {
+                        <li>@Html.ActionLink("Reserveren", "Index", "Reservations")</li>
+                    }
+                    else
+                    {
+                        <li>@Html.ActionLink("Reserveren", "Create", "Reservations")</li>
+                    }
                     <li>@Html.ActionLink("Contact", "Create", "Contacts")</li>
                     <li>@Html.ActionLink("Over", "About", "Home")</li>
                     @if (User.IsInRole("Admin"))
                     {
+                        <li>@Html.ActionLink("Reserveren", "Index", "Reservations")</li>
                         <li>@Html.ActionLink("Exporteer klantgegevens", "Index", "Export")</li>
                         <li>@Html.ActionLink("Tafels","Index","Tafels")</li>
                     }
