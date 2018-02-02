@@ -1,26 +1,7 @@
-﻿@model IEnumerable<ZureRoom.Models.Menu>
-@{
+﻿@{
     Layout = "~/Views/Frontend/_FrontEndLayout.cshtml";
 }
 
-<table class="table">
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MenuImg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td></td>
-        </tr>
-    }
-
-</table>
 
 Hallo, ik ben hans
 
