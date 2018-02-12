@@ -193,57 +193,29 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712011218423_Resolvedstuff.cs" />
-    <Compile Include="Migrations\201712011218423_Resolvedstuff.Designer.cs">
-      <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
+    <Compile Include="Migrations\201802021145339_blaasl.cs" />
+    <Compile Include="Migrations\201802021145339_blaasl.Designer.cs">
+      <DependentUpon>201802021145339_blaasl.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712081028430_menu.cs" />
-    <Compile Include="Migrations\201712081028430_menu.Designer.cs">
-      <DependentUpon>201712081028430_menu.cs</DependentUpon>
+    <Compile Include="Migrations\201802021152245_html.cs" />
+    <Compile Include="Migrations\201802021152245_html.Designer.cs">
+      <DependentUpon>201802021152245_html.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201712201216448_menu1.cs" />
-    <Compile Include="Migrations\201712201216448_menu1.Designer.cs">
-      <DependentUpon>201712201216448_menu1.cs</DependentUpon>
+    <Compile Include="Migrations\201802021250011_htmlp.cs" />
+    <Compile Include="Migrations\201802021250011_htmlp.Designer.cs">
+      <DependentUpon>201802021250011_htmlp.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801101237400_reservation.cs" />
-    <Compile Include="Migrations\201801101237400_reservation.Designer.cs">
-      <DependentUpon>201801101237400_reservation.cs</DependentUpon>
+    <Compile Include="Migrations\201802111131038_Tafel.cs" />
+    <Compile Include="Migrations\201802111131038_Tafel.Designer.cs">
+      <DependentUpon>201802111131038_Tafel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801191006298_reservation2.cs" />
-    <Compile Include="Migrations\201801191006298_reservation2.Designer.cs">
-      <DependentUpon>201801191006298_reservation2.cs</DependentUpon>
+    <Compile Include="Migrations\201802111303421_TafelSamenWeg.cs" />
+    <Compile Include="Migrations\201802111303421_TafelSamenWeg.Designer.cs">
+      <DependentUpon>201802111303421_TafelSamenWeg.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201801191027577_translation.cs" />
-    <Compile Include="Migrations\201801191027577_translation.Designer.cs">
-      <DependentUpon>201801191027577_translation.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801240959103_category.cs" />
-    <Compile Include="Migrations\201801240959103_category.Designer.cs">
-      <DependentUpon>201801240959103_category.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801241215507_ReservationNotes.cs" />
-    <Compile Include="Migrations\201801241215507_ReservationNotes.Designer.cs">
-      <DependentUpon>201801241215507_ReservationNotes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801260808209_fix.cs" />
-    <Compile Include="Migrations\201801260808209_fix.Designer.cs">
-      <DependentUpon>201801260808209_fix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801260850528_menuimg.cs" />
-    <Compile Include="Migrations\201801260850528_menuimg.Designer.cs">
-      <DependentUpon>201801260850528_menuimg.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801260946228_imgFix.cs" />
-    <Compile Include="Migrations\201801260946228_imgFix.Designer.cs">
-      <DependentUpon>201801260946228_imgFix.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801290852556_iets.cs" />
-    <Compile Include="Migrations\201801290852556_iets.Designer.cs">
-      <DependentUpon>201801290852556_iets.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201801291115156_dataAnnotationsTafel.cs" />
-    <Compile Include="Migrations\201801291115156_dataAnnotationsTafel.Designer.cs">
-      <DependentUpon>201801291115156_dataAnnotationsTafel.cs</DependentUpon>
+    <Compile Include="Migrations\201802111315085_DBUpdate.cs" />
+    <Compile Include="Migrations\201802111315085_DBUpdate.Designer.cs">
+      <DependentUpon>201802111315085_DBUpdate.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -259,11 +231,14 @@
     <Compile Include="Models\Tafel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModel\ReserverenEnTafelViewModel.cs" />
+    <Compile Include="ViewModel\ReserverenViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Frontend\style.css" />
+    <Content Include="Content\Tafel.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -344,6 +319,8 @@
     <Content Include="Views\Tafels\Samenvoegen.cshtml" />
     <Content Include="Views\Frontend\_FrontEndLayout.cshtml" />
     <Content Include="Views\Frontend\Home.cshtml" />
+    <Content Include="Views\Frontend\Reserveren.cshtml" />
+    <Content Include="Views\Tafels\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -363,44 +340,23 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201712011218423_Resolvedstuff.resx">
-      <DependentUpon>201712011218423_Resolvedstuff.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802021145339_blaasl.resx">
+      <DependentUpon>201802021145339_blaasl.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712081028430_menu.resx">
-      <DependentUpon>201712081028430_menu.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802021152245_html.resx">
+      <DependentUpon>201802021152245_html.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201712201216448_menu1.resx">
-      <DependentUpon>201712201216448_menu1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802021250011_htmlp.resx">
+      <DependentUpon>201802021250011_htmlp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801101237400_reservation.resx">
-      <DependentUpon>201801101237400_reservation.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802111131038_Tafel.resx">
+      <DependentUpon>201802111131038_Tafel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801191006298_reservation2.resx">
-      <DependentUpon>201801191006298_reservation2.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802111303421_TafelSamenWeg.resx">
+      <DependentUpon>201802111303421_TafelSamenWeg.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801191027577_translation.resx">
-      <DependentUpon>201801191027577_translation.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801240959103_category.resx">
-      <DependentUpon>201801240959103_category.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801241215507_ReservationNotes.resx">
-      <DependentUpon>201801241215507_ReservationNotes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801260808209_fix.resx">
-      <DependentUpon>201801260808209_fix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801260850528_menuimg.resx">
-      <DependentUpon>201801260850528_menuimg.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801260946228_imgFix.resx">
-      <DependentUpon>201801260946228_imgFix.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801290852556_iets.resx">
-      <DependentUpon>201801290852556_iets.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201801291115156_dataAnnotationsTafel.resx">
-      <DependentUpon>201801291115156_dataAnnotationsTafel.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201802111315085_DBUpdate.resx">
+      <DependentUpon>201802111315085_DBUpdate.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

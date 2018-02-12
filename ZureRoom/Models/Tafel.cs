@@ -12,11 +12,9 @@ namespace ZureRoom.Models
         public int Id { get; set; }
         [Required]
         [DisplayName("Tafel nummer")]
-        public string TableNmr { get; set; }
+        public int TableNmr { get; set; }
         [Required]
         [DisplayName("Stoelen")]
         public int Chairs { get; set; }
-        [DisplayName("Samengevoegt met")]
-        public string Combined { get; set; }
     }
 }

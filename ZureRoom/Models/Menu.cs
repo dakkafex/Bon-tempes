@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Web;
+using System.Web.Mvc;
 
 namespace ZureRoom.Models
 {
@@ -16,6 +17,7 @@ namespace ZureRoom.Models
         [Display(Name = "Menu plaatje")]
         public virtual MenuImg MenuImg { get; set; }
         [DisplayName("Beschrijving")]
+        [AllowHtml]
         public string Description { get; set; }
         [DisplayName("Noten")]
         public bool Nuts { get; set; }

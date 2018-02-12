@@ -35,7 +35,7 @@
                 {
                     @Html.HiddenFor(model => item.MenuImg.Id)
                     @Html.HiddenFor(model => item.MenuImg.MenuImgPlace)
-                    <br /><img src="~/Content/Uploads/@item.ID/@item.MenuImg.MenuImgPlace" class="MenuImg" /><br />
+                    <br /><img style="max-width: 200px;" src="~/Content/Uploads/@item.ID/@item.MenuImg.MenuImgPlace" class="MenuImg" /><br />
                 }
             </td>
             <td>

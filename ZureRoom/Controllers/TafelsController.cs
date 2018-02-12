@@ -22,7 +22,6 @@ namespace ZureRoom.Controllers
         // GET: Tafels
         public ActionResult Index()
         {
-            ViewBag.StoelenOver = db.Tafels.Where(i => i.Id == 1).Select(d => d.Chairs).FirstOrDefault();
             return View(db.Tafels.ToList());
         }
 
@@ -69,25 +68,10 @@ namespace ZureRoom.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TableNmr,Chairs,Combined")] Tafel tafel)
+        public ActionResult Edit([Bind(Include = "Id,Chairs")] Tafel tafel)
         {
-            int stoelen = db.Tafels.Where(d => d.Id == tafel.Id).Select(i => i.Chairs).FirstOrDefault();
-            int stoelenOver = db.Tafels.Where(i => i.Id == 1).Select(d => d.Chairs).FirstOrDefault();
-            int samen = stoelen + stoelenOver;
-
-            if (ModelState.IsValid && samen >= tafel.Chairs )
+            if (ModelState.IsValid)
             {
-                int stlUpdate = stoelen + stoelenOver - tafel.Chairs;
-
-                var query =
-                    from T in db.Tafels
-                    where T.Id == 1
-                    select T;
-                foreach (Tafel T in query)
-                {
-                    T.Chairs = stlUpdate;
-                }
-
                 try
                 {
                     db.Entry(tafel).State = EntityState.Modified;
@@ -100,25 +84,44 @@ namespace ZureRoom.Controllers
                     return RedirectToAction("Error");
                 }
             }
-            else if(samen <= tafel.Chairs)
-            {
-                TempData["Error"] = "Geef minder stoelen aan dan aangegeven/vrij zij";
-                //ViewBag.Error = "Geef minder stoelen aan dan aangegeven/vrij zijn";
-                return RedirectToAction("Fout");
-            }
             return View(tafel);
         }
 
-        public ActionResult Samenvoegen()
+        public ActionResult Details(int? id)
         {
-            return View(db.Tafels.ToList());
+            ViewBag.TafelNmr = db.Tafels.Where(s => s.Id == id).Select(x => x.TableNmr).FirstOrDefault();
+            ViewBag.Stoelen = db.Tafels.Where(s => s.Id == id).Select(x => x.Chairs).FirstOrDefault();
+
+            return View(db.Reservations.ToList());
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Samenvoegen(bool[] Check)
+        public ActionResult Details(string Reservation, int TafelNmr)
         {
-            return View(db.Tafels.ToList());
+            int ID = int.Parse(Reservation);
+
+            var query =
+                from T in db.Reservations
+                where T.ID == ID
+                select T;
+            foreach (Reservation T in query)
+            {
+                T.Tafel = TafelNmr;
+            }
+            db.SaveChanges();
+            return RedirectToAction("Details", "Tafels");
+        }
+        public ActionResult Delete(int id)
+        {
+            var query = from t in db.Reservations
+                        where t.ID == id
+                        select t;
+            foreach (Reservation T in query)
+            {
+                T.Tafel = 0;
+            }
+            db.SaveChanges();
+            return RedirectToAction("index","Tafels");
         }
     }
 }

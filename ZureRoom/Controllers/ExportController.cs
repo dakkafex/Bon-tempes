@@ -21,11 +21,11 @@ namespace ZureRoom.Controllers
 
         public ActionResult Download()
         {
-            string[] columnNames = new string[] { "ID","Name", "Number", "Message"};
+            string[] columnNames = new string[] { "ID", "Name", "Email", "Phone Number" };
 
             ApplicationDbContext db = new ApplicationDbContext();
 
-            var csvQry = from c in db.Contacts
+            var csvQry = from c in db.Reservations
                          select c;
 
             string csv = string.Empty;
@@ -37,12 +37,12 @@ namespace ZureRoom.Controllers
 
             csv += "\r\n";
 
-            foreach(var qry in csvQry)
+            foreach (var qry in csvQry)
             {
                 csv += qry.ID + ",";
                 csv += qry.Name.Replace(",", ";") + ",";
+                csv += qry.Email.Replace(",", ";") + ",";
                 csv += qry.Phone.Replace(",", ";") + ",";
-                csv += qry.Message.Replace(",", ";") + ",";
 
                 csv += "\r\n";
             }
@@ -50,5 +50,6 @@ namespace ZureRoom.Controllers
             byte[] bytes = Encoding.ASCII.GetBytes(csv);
             return File(bytes, "application/text", "Customer.csv");
         }
+
     }
 }

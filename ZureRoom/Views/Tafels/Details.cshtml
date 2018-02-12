@@ -1,0 +1,104 @@
+﻿@model IEnumerable<ZureRoom.Models.Reservation>
+<link href="~/Content/Tafel.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Details";
+}
+<h2>Details</h2>
+
+<table class="TafelL">
+    <tr>
+        <th>
+            Tafel Nummer
+        </th>
+        <th>
+            Stoelen
+        </th>
+    </tr>
+    <tr>
+        <td>
+            @ViewBag.TafelNmr
+        </td>
+        <td>
+            @ViewBag.Stoelen
+        </td>
+    </tr>
+</table>
+
+<table class="table ResR">
+    <tr>
+        <th>
+            Reserverings Nummer
+        </th>
+        <th>
+            Datum
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Tafel == 0)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<br />
+<br />
+<br />
+<br />
+<div class="ResTaf">
+    @using (Html.BeginForm("Details", "Tafels"))
+    {
+        @:Reservering toevoegen aan tafel<br />
+        @:Reserverings nummer: @Html.TextBox("Reservation");<br />
+        @Html.Hidden("TafelNmr")
+        <input type="submit" value="Toevoegen" />
+    }
+</div>
+<br />
+<table class="table">
+    <tr>
+        <th>
+            Reserverings Nummer
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Size)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            Verwijderen
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        if (item.Tafel == ViewBag.TafelNmr)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Size)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Date)
+                </td>
+                <td>
+                    @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+                </td>
+            </tr>
+        }
+    }
+
+</table>
