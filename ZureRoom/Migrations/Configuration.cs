@@ -56,6 +56,9 @@ namespace ZureRoom.Migrations
                 manager.Create(user, "Pass2!");
                 manager.AddToRole(user.Id, "Cook");
             }
+        }
+    }
+}
 
             //tafels
             if (!context.Tafels.Any(s => s.TableNmr == 1))
@@ -174,6 +177,3 @@ namespace ZureRoom.Migrations
                 Email = "TestMail3",
                 Phone = "1111111111"
             });
-        }
-    }
-}

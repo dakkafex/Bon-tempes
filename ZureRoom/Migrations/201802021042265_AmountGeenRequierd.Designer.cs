@@ -7,13 +7,13 @@ namespace ZureRoom.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class dataAnnotationsTafel : IMigrationMetadata
+    public sealed partial class AmountGeenRequierd : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(dataAnnotationsTafel));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(AmountGeenRequierd));
         
         string IMigrationMetadata.Id
         {
-            get { return "201801291115156_dataAnnotationsTafel"; }
+            get { return "201802021042265_AmountGeenRequierd"; }
         }
         
         string IMigrationMetadata.Source
