@@ -1,4 +1,3 @@
-<<<<<<< HEAD:ZureRoom/Content/Frontend/style.css
 @import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
 ul {
     list-style: none;
@@ -68,7 +67,7 @@ a {
     color: #eaeaea;
     margin: 0 auto;
     padding: 20px;
-    margin: 10px 0;
+    margin: 20px;
 }
 
 .staff {
@@ -84,7 +83,8 @@ a {
 }
 
 .item img {
-    width: 60%;
+    width: 100%;
+    margin-bottom:20px;
 }
 
 .col-md-9::-webkit-scrollbar {
@@ -144,25 +144,3 @@ a {
 /* Menu jquerry */
 
 /* end menu jquery */
-=======
-@import url(https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.css);
-
-ul{
-    list-style: none;
-}
-body{
-    height: 100%;
-}
-
-.menu{
-}
-.social-icons{
- 
-}
-.social-container{
-    border-left: 1px black solid;
-}
-.menu-container{
-    border-right: 1px black solid;
-}
->>>>>>> Development:FrontEndCode/css/style.css

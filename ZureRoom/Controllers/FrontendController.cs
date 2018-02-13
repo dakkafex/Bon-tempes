@@ -16,9 +16,7 @@ namespace ZureRoom.Controllers
         // GET: Frontend
         public ActionResult Home()
         {
-            var menu = from a in db.Menus
-                       select a;
-            return View(menu.ToList());
+            return View();
         }
 
         public ActionResult Reserveren()

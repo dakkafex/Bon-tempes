@@ -11,17 +11,14 @@ namespace ZureRoom.Models
     {
         public int ID { get; set; }
         [DisplayName("Naam")]
-        [Required]
         [MaxLength(50)]
         public string Name { get; set; }
         [MaxLength(50)]
         public string Email { get; set; }
         [DisplayName("Telefoonnummer")]
-        [Required]
         [MaxLength(10)]
         public string Phone { get; set; }
         [DisplayName("Bericht")]
-        [Required]
         [MinLength(1)]
         public string Message { get; set; }
         public bool Resolved { get; set; }

@@ -1,26 +1,43 @@
-﻿@model IEnumerable<ZureRoom.Models.Menu>
-@{
+﻿﻿@model IEnumerable<ZureRoom.Models.Menu>
+﻿@{
     Layout = "~/Views/Frontend/_FrontEndLayout.cshtml";
 }
-
-<table class="table">
-    @foreach (var item in Model)
+<script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+@foreach (var item in Model)
+{
+<div style="float:left;" class="col-md-5 item">
+    <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
+    <img class="wrap" src="~/Content/Uploads/@item.ID/@item.MenuImg.MenuImgPlace" alt="">
+    <p>
+        @* @Html.DisplayFor(modelItem => item.Description)*@
+        @Html.Raw(item.Description.ToString())
+    </p>
+    @if (item.Eggs || item.Milk || item.Nuts || item.Shellfish || item.Soy)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.MenuImg)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td></td>
-        </tr>
+        <b>Allergenen:</b>
+
     }
+    <br />
+    @if (item.Milk)
+    {
+        <i class="fab fa-first-order"></i>
+    }
+    @if (item.Nuts)
+    {
+        <i class="far fa-lemon"></i>
+    }
+    @if (item.Shellfish)
+    {
+        <i class="fas fa-utensils"></i>
+    }
+    @if (item.Soy)
+    {
+        <i class="far fa-bomb"></i>
+    }
+    @if (item.Eggs)
+    {
+        <i class="fab fa-apple"></i>
+    }allergenen
+</div>
 
-</table>
-
-Hallo, ik ben hans
-
+} 
